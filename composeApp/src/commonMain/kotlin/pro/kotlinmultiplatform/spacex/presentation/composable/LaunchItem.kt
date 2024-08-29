@@ -9,8 +9,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import org.jetbrains.compose.resources.stringResource
 import pro.kotlinmultiplatform.spacex.presentation.state.LaunchItem
+import pro.kotlinmultiplatform.spacex.presentation.theme.Spacing
+import spacex.composeapp.generated.resources.Res
+import spacex.composeapp.generated.resources.placeholder_desc_not_available
 
 @Composable
 fun LaunchItem(
@@ -23,15 +26,15 @@ fun LaunchItem(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(4.dp)
+                .padding(Spacing.Default),
+            verticalArrangement = Arrangement.spacedBy(Spacing.ExtraSmall)
         ) {
             Text(
                 text = item.missionName,
                 style = MaterialTheme.typography.titleLarge,
             )
             Text(
-                text = item.details ?: "Description not available..",
+                text = item.details ?: stringResource(Res.string.placeholder_desc_not_available),
                 style = MaterialTheme.typography.bodyMedium,
             )
         }

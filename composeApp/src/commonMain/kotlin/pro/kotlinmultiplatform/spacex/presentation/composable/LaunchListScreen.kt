@@ -8,8 +8,11 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import org.jetbrains.compose.resources.stringResource
 import pro.kotlinmultiplatform.spacex.presentation.state.LaunchListUiState
+import pro.kotlinmultiplatform.spacex.presentation.theme.Spacing
+import spacex.composeapp.generated.resources.Res
+import spacex.composeapp.generated.resources.title_launch_list_screen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -21,7 +24,7 @@ fun LaunchListScreen(
             CenterAlignedTopAppBar(
                 title = {
                     Text(
-                        text = "SpaceX Launches",
+                        text = stringResource(Res.string.title_launch_list_screen),
                     )
                 },
             )
@@ -31,7 +34,7 @@ fun LaunchListScreen(
             modifier = Modifier
                 .padding(innerPadding)
                 .fillMaxSize(),
-            verticalArrangement = Arrangement.spacedBy(4.dp),
+            verticalArrangement = Arrangement.spacedBy(Spacing.ExtraSmall),
         ) {
             items(
                 items = uiState.launchList,
@@ -39,7 +42,7 @@ fun LaunchListScreen(
             ) { item ->
                 LaunchItem(
                     modifier = Modifier
-                        .padding(horizontal = 16.dp),
+                        .padding(horizontal = Spacing.Default),
                     item = item,
                 )
             }

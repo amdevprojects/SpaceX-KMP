@@ -1,0 +1,4 @@
+<resources>
+    <string name="title_launch_list_screen">SpaceX Launches</string>
+    <string name="placeholder_desc_not_available">Description not available..</string>
+</resources>

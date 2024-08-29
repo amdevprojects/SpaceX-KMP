@@ -5,6 +5,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import org.jetbrains.compose.resources.Font
+import spacex.composeapp.generated.resources.Res
+import spacex.composeapp.generated.resources.lato_regular
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
@@ -39,7 +44,13 @@ fun AppTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         shapes = Shapes,
-        typography = Typography,
+        typography = typography(fontFamily = fontFamily),
         content = content
     )
 }
+
+private val fontFamily: FontFamily
+    @Composable
+    get() = FontFamily(
+        Font(Res.font.lato_regular, weight = FontWeight.Normal)
+    )
